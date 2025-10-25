@@ -1,1 +1,1 @@
-📄 [Clique aqui para ver o modelo de relatório (PDF)](./Modelo-ArtigoFinal.pdf)
+📄 [Clique aqui para ver o modelo de relatório (PDF)](./relatoriaofinal.pdf)
