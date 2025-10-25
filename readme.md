@@ -1,5 +1,5 @@
-![parte1.png](parte1.png)
-![parte2.png](parte2.png)
+![parte1.png](./parte1.png)
+![parte2.png](./parte2.png)
 ![parte2ponto2.png](parte2ponto2.png)
 ![parte3.png](parte3.png)
 ![parte4.png](parte4.png)
