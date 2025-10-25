@@ -32,19 +32,16 @@ public class CountingSortParalelo {
         int max = array[0];
         int min = array[0];
 
-        // Encontrando o valor máximo e mínimo
         for (int i = 1; i < n; i++) {
             if (array[i] > max) max = array[i];
             if (array[i] < min) min = array[i];
         }
 
-        // Usando ForkJoinPool para paralelizar
         ForkJoinPool pool = new ForkJoinPool();
         int numThreads = Runtime.getRuntime().availableProcessors();
         int chunkSize = n / numThreads;
         CountingTask[] tasks = new CountingTask[numThreads];
 
-        // Dividindo o trabalho de contagem em subtarefas
         for (int i = 0; i < numThreads; i++) {
             int start = i * chunkSize;
             int end = (i == numThreads - 1) ? n : (i + 1) * chunkSize;
@@ -52,7 +49,6 @@ public class CountingSortParalelo {
             tasks[i].fork();
         }
 
-        // Combinando os resultados
         int[] finalCount = new int[max - min + 1];
         for (CountingTask task : tasks) {
             int[] partialCount = task.join();
@@ -61,7 +57,6 @@ public class CountingSortParalelo {
             }
         }
 
-        // Agora temos a contagem total, podemos construir o array de saída sequencialmente
         int[] output = new int[n];
         for (int i = 1; i < finalCount.length; i++) {
             finalCount[i] += finalCount[i - 1];
